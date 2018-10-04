@@ -13,6 +13,18 @@
     </div>
     <button class="addOption">Add</button>
   </div>
+  <div class="resultSection"></div>
   <button>Go!</button>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+  <script>
+  $(function(){
+    $(".resultSection").hide() <!--vi gömmer resultat så att det inte syns på sidan tills vi behöver det.-->
+    var add_option = function() {
+      $('.inputs').append('<input></input>') <!--vi hittar funktionen inputs och lägger till en input-fält till.-->
+    }
+    $('.addOption').click(add_option) <!--Koppla funktionen till knappen add option-->
+
+  })
+  </script>
 </body>
 </html>
