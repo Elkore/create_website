@@ -14,16 +14,34 @@
     <button class="addOption">Add</button>
   </div>
   <div class="resultSection"></div>
-  <button>Go!</button>
+  <button class="submit">Go!</button>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
   <script>
   $(function(){
-    $(".resultSection").hide() <!--vi gömmer resultat så att det inte syns på sidan tills vi behöver det.-->
-    var add_option = function() {
-      $('.inputs').append('<input></input>') <!--vi hittar funktionen inputs och lägger till en input-fält till.-->
-    }
-    $('.addOption').click(add_option) <!--Koppla funktionen till knappen add option-->
+    $('.resultSection').hide() //funktionen gömmer resultat så att det inte syns på sidan tills det behövs.
 
+    var add_option = function() {
+      $('.inputs').append('<input></input>') // vi hittar funktionen inputs och lägger till en input-fält till.
+    }
+
+    $('.addOption').click(add_option) // Koppla funktionen till knappen add option
+
+    var options =[] //Lägger till array för att lagra resultaten som matas in.
+    // console.log (options); Det är bra att testa köra vår tumma lista för att se om den funkar
+
+   var submit = function() {
+   $ ('.inputSection').hide() // vi vill gömma vår inputSection och visa resultatet.
+   $ ('.resultSection').css('display', 'flex')
+   $('input').each(function(){  // För att hitta alla de alternativen behöver vi använda oss av for loop forEach. jQuery har .each() funktion
+   options.push($(this).val())
+   })
+   //console.log(options) Det är bra att testa köra console för att se om funktionen fungerar
+
+   var winner = options[Math.floor(Math.random() * options.length)] // för att plocka ut ur vår lista en variabel so är vinnare vill vi att det kommer random intex varje gång. Vi ska titta då på Math.random() och Math.floor() för att få ut ett helt tal.
+   console.log(winner)
+   $ ('.resultSection').text(winner) // lägga till vinnare till vår resultSection
+   }
+   $('.submit').click(submit)
   })
   </script>
 </body>

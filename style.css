@@ -48,3 +48,12 @@ cursor: pointer;
 font-size: 14px;
 padding: 10px 40px;
 }
+
+.resultSection {
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 35px;
+  color: white;
+}
